@@ -1,4 +1,4 @@
-ARG GO_VERSION=1.19.0
+ARG GO_VERSION=1.15
 
 FROM golang:${GO_VERSION}-buster
 
@@ -25,17 +25,25 @@ RUN mkdir -p /etc/sudoers.d && \
 COPY --chown=1000:1000 ./after-setup.sh /usr/bin/after-setup.sh
 RUN chmod +x "/usr/bin/after-setup.sh"
 
-WORKDIR /usr/src/app/go-api
+WORKDIR /usr/src/app
 
 # Optional
 #COPY ./go.mod ./go.sum ./
 #RUN go mod download
 
-# Required for Go extension
-RUN go install golang.org/x/tools/gopls@latest
+# gopls v0.9.5 is latest compatible with Go v1.15
+RUN GO111MODULE=on  env GOPATH=/go  go get golang.org/x/tools/gopls@v0.9.5
 
-# Optional, only if you need hot reload
-RUN go install github.com/cosmtrek/air@latest
+RUN GO111MODULE=on  env GOPATH=/go  go get github.com/rogpeppe/godef
+
+RUN GO111MODULE=on  env GOPATH=/go  go get github.com/ramya-rao-a/go-outline
+
+# Required for Go extension (failed because io/fs not found)
+#   RUN GO111MODULE=on  go get -u golang.org/x/tools/cmd/goimports
+
+
+# Optional, only if you need hot reload (requires io/fs)
+#RUN GO111MODULE=on  env GOPATH=/go   go get github.com/cosmtrek/air
 
 # non-root user, for git commit purposes
 USER ${USERNAME}

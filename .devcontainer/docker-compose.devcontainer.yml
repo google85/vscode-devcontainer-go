@@ -6,7 +6,7 @@ services:
       context: "."
       dockerfile: Dockerfile
       args:
-        GO_VERSION: '${GO_VERSION:-1.19.0}'
+        GO_VERSION: '${GO_VERSION:-1.15.0}'
         USERNAME: '${USERNAME:-vscode}'
         USER_UID: '1000'
         USER_GID: '1000'
@@ -16,7 +16,7 @@ services:
 #      - ../.env
     environment:
       - TZ=Europe/Bucharest
-      - GOPATH=/usr/src/app/include
+      - GOPATH=/go
     volumes:
       - ..:/usr/src/app
     extra_hosts:

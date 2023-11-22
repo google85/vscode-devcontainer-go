@@ -19,7 +19,7 @@
             "settings": { 
             },
             "extensions": [
-				"golang.Go"	// requires 'go install golang.org/x/tools/gopls@latest'
+				"golang.Go@0.39.0"	// requires 'go install golang.org/x/tools/gopls@...'
             ]
         }
 	},
