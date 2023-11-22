@@ -1,0 +1,34 @@
+{
+	"name": "go-project",
+	"dockerComposeFile": "docker-compose.devcontainer.yml",
+    "service": "go-devcontainer",
+
+	"workspaceFolder": "/usr/src/app",
+	"mounts": [
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+		//"source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached"
+	],
+
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	//"features": {},
+
+	// Configure tool-specific properties.
+	"customizations": {
+		"vscode": {
+            // Set *default* container specific settings.json values on container create.
+            "settings": { 
+            },
+            "extensions": [
+				"golang.Go"	// requires 'go install golang.org/x/tools/gopls@latest'
+            ]
+        }
+	},
+
+	"postCreateCommand": "after-setup.sh && sudo su",
+
+	"forwardPorts": [
+		// 8080
+	]
+
+	//, "remoteUser": "root"
+}
