@@ -25,7 +25,7 @@ RUN mkdir -p /etc/sudoers.d && \
 COPY --chown=1000:1000 ./after-setup.sh /usr/bin/after-setup.sh
 RUN chmod +x "/usr/bin/after-setup.sh"
 
-WORKDIR /usr/src/app/go-api
+WORKDIR /usr/src/app
 
 # Optional
 #COPY ./go.mod ./go.sum ./
