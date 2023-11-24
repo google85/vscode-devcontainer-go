@@ -5,8 +5,10 @@
 
 	"workspaceFolder": "/usr/src/app",
 	"mounts": [
-		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
-		//"source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached"
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached",
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.ssh,target=/root/.ssh,type=bind,consistency=cached",
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/home/vscode/.gitconfig,type=bind,consistency=cached",
+		"source=${localEnv:HOME}${localEnv:USERPROFILE}/.gitconfig,target=/root/.gitconfig,type=bind,consistency=cached"
 	],
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
@@ -19,12 +21,12 @@
             "settings": { 
             },
             "extensions": [
-				"golang.Go@0.39.0"	// requires 'go install golang.org/x/tools/gopls@...'
+				"golang.Go@0.39.0"	// requires 'go install golang.org/x/tools/gopls@v0.9.5'
             ]
         }
 	},
 
-	"postCreateCommand": "after-setup.sh && sudo su",
+	"postCreateCommand": "after-setup.sh",
 
 	"forwardPorts": [
 		// 8080
