@@ -1,5 +1,5 @@
 {
-    "editor.defaultFormatter": "golang.go",
+    //"editor.defaultFormatter": "golang.go",
     "editor.formatOnSave": false,
     "go.showWelcome": false,
     "go.formatTool": "default",
