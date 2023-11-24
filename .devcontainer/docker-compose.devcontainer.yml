@@ -16,7 +16,7 @@ services:
 #      - ../.env
     environment:
       - TZ=Europe/Bucharest
-      - GOPATH=/usr/src/app/include
+      - GOPATH=/go
     volumes:
       - ..:/usr/src/app
     extra_hosts:
