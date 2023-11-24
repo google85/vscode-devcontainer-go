@@ -21,8 +21,7 @@ RUN mkdir -p /etc/sudoers.d && \
     echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
     chmod 0440 /etc/sudoers.d/$USERNAME
 
-# fix permissions for non-root go install
-RUN mkdir -p /go/pkg && chmod 0755 /go/pkg
+#RUN mkdir -p /go/pkg && chmod 0755 /go/pkg
 
 # optional after-setup script
 COPY --chown=1000:1000 ./after-setup.sh /usr/bin/after-setup.sh
@@ -47,6 +46,9 @@ RUN GO111MODULE=on  env GOPATH=/go  go get github.com/ramya-rao-a/go-outline
 
 # Optional, only if you need hot reload (requires io/fs)
 #RUN GO111MODULE=on  env GOPATH=/go   go get github.com/cosmtrek/air
+
+# fix permissions for non-root go install
+RUN chown -R 1000:1000 /go
 
 # non-root user, for git commit purposes
 USER ${USERNAME}
