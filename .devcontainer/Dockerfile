@@ -14,12 +14,15 @@ RUN apt-get update && apt-get install -y \
 
 # Create non-root user
 RUN groupadd --gid $USER_GID $USERNAME && \
-    useradd --uid $USER_UID --gid $USER_GID -m $USERNAME
+    useradd --uid $USER_UID --gid $USER_GID -c "VsCode user" -s /bin/bash  -m $USERNAME
 
 # add to root
 RUN mkdir -p /etc/sudoers.d && \
     echo $USERNAME ALL=\(root\) NOPASSWD:ALL > /etc/sudoers.d/$USERNAME && \
     chmod 0440 /etc/sudoers.d/$USERNAME
+
+# fix permissions for non-root go install
+RUN mkdir -p /go/pkg && chmod 0755 /go/pkg
 
 # optional after-setup script
 COPY --chown=1000:1000 ./after-setup.sh /usr/bin/after-setup.sh

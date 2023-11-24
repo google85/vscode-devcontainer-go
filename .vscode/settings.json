@@ -1,0 +1,17 @@
+{
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": false,
+    "go.showWelcome": false,
+    "go.formatTool": "default",
+    "files.associations": {
+        ".env": "ini",
+        ".air.toml": "ini"
+    },
+    "go.useLanguageServer": true,
+    "gopls": {
+        "build.env": {
+            //"GO111MODULE": "off",
+            //"GOPATH": "/go:/app/src/include"
+        }
+    }
+}
