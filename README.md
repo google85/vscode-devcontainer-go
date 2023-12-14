@@ -5,7 +5,7 @@
 - Usage:
     - Clone this branch in an empty directory:
     ```bash
-    git clone --branch=demo-project https://github.com/google85/vscode-devcontainer-go.git  go-project [TODO]
+    git clone --branch=demo-project https://github.com/google85/vscode-devcontainer-go.git  go-project
     cd go-project/
     ```
 
