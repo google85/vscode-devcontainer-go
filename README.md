@@ -5,7 +5,7 @@
 - Usage:
     - Clone this branch in an empty directory:
     ```bash
-    git clone --branch=demo-project https://github.com/google85/vscode-devcontainer-go.git  go-project
+    git clone --branch=demo-project  https://github.com/google85/vscode-devcontainer-go.git  go-project
     cd go-project/
     ```
 
@@ -15,3 +15,8 @@
         ```
 
     - in `VsCode`, click on `Reopen in Devcontainer`.
+
+    - Open a terminal in `VsCode` and type:
+        ```bash
+        make
+        ```
