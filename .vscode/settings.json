@@ -10,7 +10,7 @@
     "go.useLanguageServer": true,
     "gopls": {
         "build.env": {
-            //"GO111MODULE": "off",
+            "GO111MODULE": "on",
             //"GOPATH": "/go:/app/src/include"
         }
     }

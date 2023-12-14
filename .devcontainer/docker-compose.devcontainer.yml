@@ -2,13 +2,9 @@ version: '3'
 
 services:
   go-devcontainer:
-    build:
-      context: "."
-      dockerfile: Dockerfile
+    image: google85/vscode-devcontainer-go:1.19.0
     hostname: go-devcontainer
     working_dir: /usr/src/app
-#    env_file:
-#      - ../.env
     environment:
       - TZ=Europe/Bucharest
       - GOPATH=/go
