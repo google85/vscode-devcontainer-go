@@ -18,5 +18,6 @@
 
     - Open a terminal in `VsCode` and type:
         ```bash
+        cd src/
         make
         ```
